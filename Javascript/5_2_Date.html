@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+// 5.2 주요 내장객체 - Date
+// 월(Month)은 index가 0부터 시작해서 1씩 줄어든 상태 11-> Dec, 4-> Mar
+      var oToday = new Date();
+      var oBirthday = new Date(95,12,11);
+      var oBirthday2 = new Date(95, 11, 17, 3, 24, 0);
+      var oBirthday3 = new Date("1995-11-17");
+      var oBirthday4 = new Date("1995.11.17");
+
+      console.log(oToday);
+      console.log(oBirthday);
+      console.log(oBirthday2);
+      console.log(oBirthday3);
+      console.log(oBirthday4);
+
+      // 연도, 월, 일, 요일을 가져오는 함수
+      document.write(oToday.getFullYear() + "<br/>");
+      document.write(oToday.getMonth() + "<br/>");
+      document.write(oToday.getDate() + "<br/>");
+      document.write(oToday.getDay() + "<br/>");
+
+      // 배열에 넣어서 가져다 쓰는 case
+      var aDays = ["일", "월", "화", "수", "목", "금", "토"];
+      document.write(aDays[oToday.getDay()] + "요일" + "<br/>");
+      document.write("<br/>");
+
+      // 날짜를 변수로 설정해서 출력
+      var sFull = oToday.getFullYear() + "." + ("00" + (oToday.getMonth() + 1)).slice(-2)  +  "." + oToday.getDate();
+      document.write(sFull);
+
+      // 날짜를 가져오는 방법 (함수)
+      function getFormatDate () {
+        var iYear = oToday.getFullYear();
+        var iMonth = oToday.getMonth() + 1;
+        var iDate = oToday.getDate();
+        return iYear + "." + (iMonth<10? "0" + iMonth : iMonth) + "." + (iDate<10? "0" + iDate : iDate);
+      }
+      document.write("<br/>");
+      document.write(getFormatDate());
+
+    </script>
+  </body>
+</html>
