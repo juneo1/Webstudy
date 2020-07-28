@@ -87,6 +87,7 @@
       // map 메소드는 제공된 함수를 배열의 각 요소에 대해 한 번 호출
       // 원데이터는 변경되지 않음
       // map은 반복문으로 보고 aNumbers의 length만큼 반복해주는 것
+      // 결과값을 배열에 담았다가 for문이 끝날때 결과값을 배열에 담아준다
       var aNumbers = [1, 2, 3, 4, 5];
       var aNumbersMap = aNumbers.map(function (item) {
         return item ** 2;
@@ -94,8 +95,41 @@
       document.write(aNumbersMap + "<br/>");
       document.write(aNumbers + "<br/>");
 
-      // 결과값을 배열에 담았다가 for문이 끝날때 결과값을 배열에 담아준다
 
+      // filter
+      var aOver3 = aNumbers.filter(function(item) {
+          return item > 3;
+      });
+      document.write(aOver3 + "<br/>");
+      document.write(aNumbers + "<br/>");
+
+
+      // every는 length만큼 반복문을 돌면서
+      // 모두 AND조건으로 돌아서 조건내용중 하나라도 FALSE면 FALSE로 반환
+      var bAllOver3 = aNumbers.every(function(item) {
+        return item > 3;
+      });
+      document.write(bAllOver3 + "<br/>");
+
+      var bAllOver0 = aNumbers.every(function(item) {
+        return item > 0;
+      });
+      document.write(bAllOver0 + "<br/>");
+
+      // some은 OR조건, 일부만 true여도 최종값이 true이다
+      // 하나의 item만 true여도 true 리턴
+      var bSomeOver3 = aNumbers.some(function(aNumbersValue, index, array) {
+        return aNumbersValue > 3;
+      })
+      document.write(bSomeOver3 + "<br/>");
+
+      // find
+      // 반복시키고 조건을 만족하는 첫번 째 데이터 값을 return
+      var iFirstItem = aNumbers.find(function (item, index, array) {
+        return item > 3;
+      });
+
+      document.write(iFirstItem + "<br/>");
 
     </script>
   </body>
