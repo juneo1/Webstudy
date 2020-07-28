@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+
+  <script type="text/javascript">
+    function testParamFun(sParam1, sParam2) {
+      document.write("sParam1 = " + sParam1 + "<br/>");
+      document.write("sParam2 = " + sParam2 + "<br/>");
+      document.write("====arguments=====<br/>");
+      //document.write(arguments);
+      console.log(arguments);
+      document.write("<br/><br/><br/>");
+    }
+
+    // 같은 펑션을 세 번 실행 시켰을 때 param의 값만 다르게 해줌.
+    // parameter로 아무 값도 넘기 지 않았기 때문에 sParam1, sParam2 값이 초기화가 안됨.
+    testParamFun();
+    testParamFun("a", "b");
+    testParamFun("3", "b");
+    testParamFun("a", "b", "c");
+    testParamFun("a", true, "c");
+    // 1. 데이터가 파라미터에 아무것도 주지 않아도 오류가 나지는 않음.
+    // 2. 파라미터 개수가 선언된 것보다 많아도 오류가 나지 않음
+  </script>
+</body>
+
+</html>

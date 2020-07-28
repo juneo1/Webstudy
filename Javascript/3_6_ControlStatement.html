@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Control Statement</title>
+  </head>
+  <body>
+    <input id="numberInput"/>   <button onclick="onPrint()";>실행</button>
+                                  <!-- button 태그에 onclick이 attribute   -->
+       <!-- input태그  ==> 무엇인가를 입력받는 곳
+      button태그 -->
+
+
+
+    <script>
+    document.write("<br/>");
+    document.write("<br/>");
+    document.write("<br/>");
+    document.write("<br/>");
+
+    /*- 제어문의 종류
+    조건  :   if - else
+   반복 : while, do while, for
+   선택 : switch - case
+   흐름 변경 : continue, break
+    */
+
+    /* 1. 조건문
+          1) if 문 (조건문)
+          -형태 :
+                a) if(조건){
+                         조건이 true일 경우 실행시킬 로직;
+                            }
+                b) if(조건){
+                            로직1 ( 조건이 true )
+                          }else {
+                            로직2 ( 조건이 false ) }
+                c) if (조건){  로직1
+                      }else if(조건2){ 로직2
+                      }....
+                    } else if(조건N){  로직N
+                    }(* else { 위의 조건들에서 걸리는 조건이 없으면 나머지 처리.
+                    } )
+                - *** if문이 중요; for / while / 불린 / 연산자 (&& , ||, !, %)등이랑 많이 사용됨.
+                   cf) for(반복문)-안에 if(조건문)=> 해당 조건일때 실행할 로직.
+                       if의 조건 안에 boolean형태를 많이 씀.
+
+              */
+
+      // var iNum1 = 1, iNum2= 2;
+      //
+      // if ( iNum1 < iNum2 ){
+      //   document.write("1<2은 참");
+      // }
+      //
+      // document.write("<br/>");
+      //
+      // if (  iNum1 > iNum2 ){
+      //   document.write("1>2은 참");
+      // }else{
+      //   document.write("1>2은 거짓");
+      // }
+      //
+      // document.write("<br/>");
+      // document.write("<br/>");
+      // document.write("<br/>");
+
+      // 객체에 할당
+      // var oPerson = {name:"Daniel", age:30};
+      //
+      // if(oPerson.gender){    // oPerson.gender 은 defined 값이다! ==>false
+      //   document.write("이 사람의 성별은"+oPerson.gender+"입니다.");
+      // }else if (oPerson.age){
+      //   document.write("이 사람의 나이는"+oPerson.age+"입니다.");
+      // }else{
+      //   document.write(" 이 사람의 정보를 찾을 수 없습니다.");
+      // }
+      // document.write("<br/>");
+      // document.write("<br/>");
+      // document.write("<br/>");
+      //
+      // // 불일치 연산자
+      // var oPerson = {name:"Daniel", age:0};
+      //
+      // if(oPerson.gender){    // oPerson.gender 은 defined 값이다! ==>false
+      //   document.write("이 사람의 성별은"+oPerson.gender+"입니다.");
+      // }else if (oPerson.age){
+      //   document.write("이 사람의 나이는"+oPerson.age+"입니다.");
+      // }else{
+      //   document.write(" 이 사람의 정보를 찾을 수 없습니다.");
+      // }
+      //
+      // document.write("<br/>");
+      // document.write("<br/>");
+      // document.write("<br/>");
+
+      /* 만 나이를 인식하기 위해서,
+       목표;  0 을 나이로 인식하게 해라. */
+      // var oPerson = {name:"Daniel", age:0};
+      //
+      // if(oPerson.gender){    // oPerson.gender 은 defined 값이다! ==>false
+      //   document.write("이 사람의 성별은"+oPerson.gender+"입니다.");
+      // }else if (oPerson.age === 0 || oPerson.age){
+      //   document.write("이 사람의 나이는 "+oPerson.age+"세 입니다.");
+      // }else{
+      //   document.write(" 이 사람의 정보를 찾을 수 없습니다.");
+      // }
+      //
+      // document.write("<br/>");
+      // document.write("<br/>");
+      // document.write("<br/>");
+
+
+/*  2. do-while
+          : Loop 문 (반복문)
+          : 형식
+              do {           ==> 2)) 실행!
+              실행
+            } while(조건);    ==> 1)) 조건; true일 경우에~!!
+          : 특징
+            ; do - while문은 조건while을 타기 전에 먼저 do를 1회 무조건 해주고, while 조건을 탄다!!!
+              2회부터는 조건이에 맞는 영역 안에서 do 실행 문을 탄다!!
+              ** do-while 문을 사용하는 경우; 조건에 맞지 않더라도 최초에 한번은 로직을 타게 하도록!!
+          : 조건이 false가 될 때까지 loop한다.
+            */
+    // var i = 10;    // i를 제일 많이 쓴다 ; Index의 약자로, index를 많이쓴다!!
+    // do{
+    //   i += 2;
+    //   document.write("i = " + i);
+    //   document.write("<br/>");
+    // }while (i<10);
+
+/* 3. while 반본묵
+*/
+    // var k = 2;
+    // while(k<10) {
+    //   k+=2;
+    //   document.write("k = " + k);
+    //   document.write("<br/>");
+    // }
+
+/* 4. for문
+          -형식 ;     for (변수초기화; 조건;       변수값변경 ) { 실행 로직    }
+          -실행 순서;        1)        2)true일때      4)      3)로직
+                                      5)조건 check    7)        6) 실행
+          - 조건 ; i++ / i+=2 / ....
+          */
+  // for( var j=0; j <10; j+=2){
+  //     document.write("j = " + j);
+  //     document.write("<br/>");
+  // }            // 결과 ; j = 0
+                      // j = 2
+                      // j = 4
+                      // j = 6
+                      // j = 8
+                      // 변수의 증감 전에 화면에 출력하니, 위와는 다르게 0부터 나온다.
+  /* 나머지 연산자를 이용해서 5,10,..,50까지 찍어라. (단, 0은 제외)
+          ==> 목표가 뭔지 간결히 생각 ; 0을 제외한 5의 배수를 찍어라*/
+  var i;
+  for( i=0 ; i<=50; i++){
+    if(i %5 === 0 && i !==0 ){   // 5로 나누어서 나머지가 0인것은 5의 배수!!
+        document.write("<p>"+"i = " + i +"<p/>"+ "<br/>");
+        /* document.write(); 메소드는 태그를 문자열로 받아서 뿌려줄수있다.
+                              이 때, 문자열로 태그끼리도 모두 문자열 이므로, +로 연결한다*/
+       // 이렇게 for문 안에 if문을 써서 조건걸어 사용~!!!!!
+    }
+  }
+
+/* 4-1. for-continue, break
+        a)  continue ; if 문 안에서 조건이 충족되지 않을때, 로직을 타지 않고 for 문의 조건을 다시 타도록
+
+// */    for( var k=0; k<10; k++){  //해석; 0~9까지 /
+//         if( k%2 !==0 ){    //k%2 !==0 ; 홀수라는 뜻
+//             continue;       // continue를 만나면 for로직을 나온다!!
+//         }
+//         document.write("k= " + k + "<br/>")
+        }  // ==> 따라서, if()의 조건문의 false값일때 출력메소드를 탄다!
+
+
+/*    continue설명;
+              for( var k=0; k<10; k++){  //해석; 0~9까지 /
+              if( k%2 !==0 ){    //k%2 !==0 ; 홀수라는 뜻
+                  continue;    ==> for문에서 continue를 만나면
+              }
+              document.write("k= " + k + "<br/>")
+              }
+              for(){
+              로직1;
+              continue;   ==> for 문에서는 continue를 만나면 밑에 내려오지 않고, for문의 조건문
+                              으로 다시 올라간다.
+              로직2;
+
+            }
+*/
+            // for( var k=0; k<10; k++){  //해석; 0~9까지 /
+            //         if(!(i %5 === 0 && i !==0) ){
+            //             continue;
+            //         }
+            //         document.write("k= " + k + "<br/>")
+            //         }
+            //
+            //         document.write("<br/>");
+            //         document.write("<br/>");
+            //         document.write("<br/>");
+            //         document.write("<br/>");
+
+      /*
+        b) break; for문 안에서 break를 만나면 여기서 반복문 자체가 끝.
+                 대신, 이전에 반복했떤 것은 실행
+                 break를 만나는 순간 멈춰버린다.*/
+        // var m;
+        // for( m=0; m<10; m++){
+        //   if (5<m)  {
+        //     break;   // 이렇게 중괄호 안에 한 줄일경우, 중괄호를 안써도 된다.
+        // }  document.write("m=  " + m +"<br/>");
+        // }
+
+        // cf_ if 문안에 실행 로직이 한 줄일 경우, 중괄호를 안써도 되지만... 오류날쑤잇는데..
+        // for( var k=0; k<10; k++){  //해석; 0~9까지 /
+        //         if(!(i %5 === 0 && i !==0) )
+        //             continue;
+        //         document.write("k= " + k + "<br/>")
+        //         }
+
+
+/*  5. switch
+        형식 ; switch(조건){
+                  case 하위조건 1 :
+                              로직 1
+                  case 하위조건 2 :
+                              로직 2
+                  case 하위조건 3 :
+                              로직 3
+        설명 ; switch(조건) === case(조건) 인, 두 조건이 같을경우 해당 case문의 로직을 탄다.
+              (조건문은 숫자 /문자 모두 가능 )
+        특징; 해당 case와 같은 하위 조건 포함, 그 밑의 case문까지 다 실행된다.
+            sol) 각 case문에 break;걸어준다.
+      }
+*/          document.write("<br/>");
+            document.write("<br/>");
+            document.write("<br/>");
+            document.write("<br/>");
+
+      function onPrint(){
+        var iInputValue = document.querySelector("#numberInput").value;
+                    // 프로그램 특성상,  document.querySelector("#numberInput").value값은
+                    // 문자열로 가져온다.
+        iInputValue = parsInt(iInputValue);
+
+        switch (iInputValue) {
+          case 0 :
+            document.write("0" + "<br/>");
+            break;
+          case 1 :
+            document.write("1" + "<br/>");
+            break;
+          case 2 :
+            document.write("2" + "<br/>");
+            break;
+          case 3 :
+            document.write("3" + "<br/>");
+            break;
+          case 4 :
+            document.write("4" + "<br/>");
+            break;
+          default :
+            document.write("일치하는게 없습니다."+"<br/>");
+            break;
+          }
+          // switch는 숫자형/ 문자형 모두 사용 가능.
+          // switch (iInputValue) {
+          //   case "hello world":
+          //     document.write("만났습니다.");
+          //     break;
+          //   case "goodbye" :
+          //     document.write("헤어집니다.");
+          //     break;
+          //   default :
+          //     document.write("적당한 인사말이 없습니다.");
+          //     break;
+
+
+          // '조건절'이 case 문에 들어가는 것! (다른 언어와의 차이점~! 엄청 유연한것!!)
+        switch (true){
+          case iInputValue<0 :
+            document.write("0미만입니다.");
+
+          case iInputValue>=0 && iInputValue<=10 :   /* javaScript엔진은   0<=iInputValue<=10 을 인식하지 못한다.
+                                                         무조건 && 조건으로 주어야만 한다!!! 논리 연산자로!!  */
+            document.write("0이상 10이하 입니다..");
+
+          case iInputValue>10 && iInputValue <=20 :
+            document.write("10초과 20이하 입니다.");
+
+          default :
+            document.write("20 초과 합니다.");
+        }
+    }    /* 맨 위에     <input id="numberInput"/>
+            <button onclick="onPrint()";>실행</button>
+            에서 get  */
+
+
+
+          // break 를 걸지 않았을 경우 유용한것
+        var sCode = null;
+
+        switch (sCode){
+          case 0:
+          case null :
+          case false:
+          case "":
+          case undefined :
+            document.write("이 값의 boolean값은 false 입니다.");
+                    /* 각 case 문에 로직이 전혀 없다. break문 또한 없으니까, default 위의 case도
+                      맨 밑에 case undefined : 로직을 타버린다. */
+         default :
+            document.write("이 값의 boolean값은 true 입니다.");
+
+        }
+
+            // 위의 switch문과 동일한 if 문.
+            // 단, 이처럼 조건문이 짧으면 괜찮지만 조건문이 길면 지저분해 보이는 등의 문제로, switch-case문이 더 좋다.
+        if (sCode === 0 ||
+            sCode === null ||
+            sCode === false ||
+            sCode === "" ||
+            sCode === undefined ) {
+              document.write("이 값의 boolean값은 false 입니다.");
+            }else{
+              document.write("이 값의 boolean값은 true 입니다.");
+
+            }
+
+            /*   function
+                        1) 형식.
+                          Set>>   function 이름(  *** parameter(매개변수)) {
+                                로직   ( -> 이 안에, 조건문, 반복문 등등 모두 올 수 있다. ) 실행
+                                  return 값;     ==> function 을 실행한 애한테 값을 던져줌!!
+                                  }
+                          Get>>   함수이름(); ==> 함수를 불러오는 곳
+                                ** return 키워드로 return 값을 만든 경우
+                                      ; var result = 함수이름(); 으로 gkatn
+                                함수이름(2,"a");  ==> 함수생성시 ()안에 생성한 매개변수 생성에 값을 할당!!한다.
+                        2) 파라미터 ;
+                            ㄱ. 0~ N로 무한대로 설정 가능
+                            ㄴ. 매개변수도 변수! 이므로, 선언시, var을 기본적으로 써줘야 하는데,
+                                위치 자체가() 변수를 담는 곳이므로 var를 쓰지 않아도 변수임을 알 수 있다.!!
+                                ==> 따라서, var를 쓰지 않기로 약속함!! (단, 변수명 선언하는 방식과는 같아야함.)
+
+                                  ex)  return값이 있다.
+                                  function parseInt(param1){
+                                  문자열 -> 숫자
+                                  return 숫자;
+                                }
+                                      parseInt("3");
+
+                                ex2) return 값이 없다!!
+                                function write(param1){
+                                parm1을 화면에 찍어주도록 로직;
+
+                              }
+                                    document.write("문자열");
+            */
+
+
+
+
+
+
+
+
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,49 @@
+a {color : black;
+text-decoration-line: none;}
+a:hover {color:gray !important;}
+.grayColor {color: black;}
+#active{color: black;}
+
+h1{
+    font-size: 45px;
+    text-align: center;
+    border-bottom: 3px gray solid;
+    margin: 0px;
+    padding: 10px;
+}
+
+ol{
+    /*width: 500px;
+    margin: auto;
+    padding: 10px; */
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+li{
+  list-style-type: none;
+  display: inline;
+  border: 1px red dotted;
+  grid-template-columns;
+  text-align: center;
+  margin-left: 10px;
+}
+
+p{
+
+}
+
+img{
+
+}
+
+#grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+}
+
+#sapui5columns{
+  display: grid;
+  grid-template-columns: 50px 1fr 50px 1fr 10px;
+}

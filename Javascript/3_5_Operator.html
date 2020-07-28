@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> 연산자 </title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    document.write("<br/>");
+    document.write("<br/>");
+    document.write(" &--------------------------------- 연산자 ------------------------------------&");
+    document.write("<br/>");
+    document.write("<br/>");
+    document.write("<br/>");
+    document.write("<br/>");
+//1. 증감 연산자.
+      var iAge =29;
+      var iAge2= 10;
+      document.write(++iAge); // ++;화면에 찍기 전에 증가 시킴 => 화면에 뿌리면 증가된   30
+      document.write("<br/>");
+      document.write(--iAge);  // 9
+      document.write("<br/>");
+      document.write(iAge++);  // 뒤에 ++/--; 30
+      document.write("<br/>");
+      document.write(iAge2--); // 9
+      document.write("<br/>");
+
+      var iNum1 = 20;
+      var iNum2 = 2;
+      var iSumNum = iNum1-- + iNum2;
+      document.write(iSumNum);   // 22
+      document.write("<br/>");
+      document.write(iNum1);   // 19
+      /* "iNum1--" 설명
+              ; 모든 로직을 다 마치고 --한다.
+              var iSumNum = iNum1-- + iNum2;
+              에서, 실제는 iSumNum = iNum1 + iNum2 을 다 하고,
+              자신이 해당하는 로직을 모두 끝내고 다시 자신으로 돌아와서 그 떄, --를 실행한다.
+              (* 잘 쓰이지 않는다. _이유; 작성자도 잘 파악을 못한다.)*/
+
+
+/* 2. Boolean 연산자  ( *중요! )
+    2-1)  not 연산자
+          : 강제적으로 boolean 값으로 바꿈
+          +) not 으로 실제 boolean값을 reverse해준다.
+        *(!!) ==> true ; 그냥 원본값.
+             ==> 사용하는 이유; 강제적으로 boolean으로 형변환을 시켜주고 싶을떄~!
+                : ex) Boolean("blue") 식으로 true 로 주는 불린을 주고싶지만,
+                      대게,  !!{}  해서  true값을 나타내도록~!!!
+             */
+      document.write("<br/>");
+      document.write("<br/>");
+      document.write("<br/>");
+
+      document.write("!object = " + !{});          // !object = false
+
+                  // {}  ; 객체 리터럴  (cf_ string의 "" 가 문자열의 리터럴과 같은 level)
+      document.write("<br/>");
+      document.write("<br/>");
+      document.write("! '' = " + !"");            //      !'' = true
+      document.write("<br/>");
+      document.write("!\"blue\" = " + !"blue");   //  !"blue" = false
+      document.write("<br/>");
+      document.write( "!0 = " + !0 );             //        !0 = true
+
+      document.write("<br/>");
+      document.write("<br/>");
+      document.write("<br/>");
+
+      /*
+      2-2) and 연산자
+       : && 를 넣으면, 앞의 값과 뒤의 값 모두 boolean 타입으로 강제 형변환시킨다.
+       : && 조건 ; 앞 조건 : true  + 뒤 조건 : true  == true!
+          * 앞 조건(true)  + 뒤 조건 (true)  ==> 일때만, 최종 값 = true!!
+      */
+      // cf_ if 조건문
+      if( "" && "abc") {
+        document.write("true");
+      } else{
+        document.write("false");
+      }
+      /* cf)  if문의 키워드 : if; 내가 지금부터 if 문사용할꺼야! 라고 엔진에 알려줌
+            if( 조건값){
+                    조건값이 ture 일때, 여기 로직을 탐 ;
+          } else {
+              true가 아닐때 타는 로직 ;
+        }
+        */
+
+      document.write("<br/>");
+      document.write("<br/>");
+      document.write("<br/>");
+
+        // 예제.
+          var bif = !("Hello World" && "abc");
+          if( bif) {
+            document.write("true");
+          } else{
+            document.write("false");
+          }
+
+          document.write("<br/>");
+          document.write("<br/>");
+          document.write("<br/>");
+
+          var bif1 = ("Hello World" && {});
+              // {} ; object리터럴로 object를 가리킴
+             //       object안에 아무값이 없으니 null값이다.
+          if( bif1) {
+            document.write("true");
+          } else{
+            document.write("false");
+          }
+
+          document.write("<br/>");
+          document.write("<br/>");
+          document.write("<br/>");
+
+          var bif2 = ("Hello World" && null);
+              // {} ; object리터럴로 object를 가리킴
+             //       object안에 아무값이 없으니 null값이다.
+          if( bif2) {
+            document.write(" ==== 논리 AND ==== ");
+          } else{
+            document.write("false");
+          }
+
+          document.write("<br/>");
+          document.write("<br/>");
+          document.write("<br/>");
+
+  /* 2-3) OR 연산자  ( || )
+          : 앞 조건 || 뒤 조건  => 앞, 뒤 조건 모두 false일때만 false일땐
+                              => 나머지는 모두 true
+                                                                */
+          document.write("==== 논리 or 연산자 test ====");
+          document.write("<br/>");
+
+          if("Hello World" || null) {
+            document.write(" ==== 논리  OR ==== ");
+          } else{
+            document.write("false");
+          }
+
+          document.write("<br/>");
+          document.write("<br/>");
+          document.write("<br/>");
+
+          /*  다시 설명해달라고 해야함~!
+          var sCarName;
+          var oCar = {};
+          oCar.name = sCarName || "grandeur";
+          document.write("<br/>");
+          document.write(oCar.name); */
+
+          document.write("<br/>");
+          document.write("<br/>");
+          document.write("<br/>");
+
+
+// 3.  곱셈, 나눗셈, 나머지 연산자  (사칙연산자 중에서..)
+
+    var iValue1 = 5 * 4;
+    var iValue2 = 66 / 11;
+    var iValue3 = 26 % 5;
+
+    document.write(iValue1);
+    document.write("<br/>");
+    document.write(iValue2);
+    document.write("<br/>");
+    document.write(iValue3);
+
+
+    document.write("<br/>");
+    document.write("<br/>");
+    document.write("<br/>");
+
+
+ // 3_1) 나머지 연산자 사용법
+
+    // 보통 반복문 안에 이렇게 씀.
+    // for/while 구문~~ 안에...
+      var iMax = 30;
+      if(iMax % 2 === 0){
+        document.write(iMax);
+      }
+        /* cf_ imax % 2 === 0  은 짝, 홀수  분간 ==> 화면에 그릴떄,
+                홀수번째; white 색상 / 홀수번째 ; gray 색상으로 줄때. 많이 씀*/
+      // ( esle 가 없을땐, true일 때만 나오고 false일땐 아무것도 안한다.)
+
+
+      document.write("<br/>");
+      document.write("<br/>");
+      document.write("<br/>");
+
+
+  /* 3_2) 덧셈 연산자
+          * cf_주의사항;
+               항상 문자열 + 숫자 ==> 문자열로 나옴!!!
+      */
+      var iNum5 = 5;
+      var iNum10 = 10;
+      var sMessage = "The sum of 5 and 10 is  " + iNum5 + iNum10 + ".";
+      document.write(sMessage);
+
+      document.write("<br/>");
+      document.write("<br/>");
+      document.write("<br/>");
+
+//4.  부등호 연산자
+        var iInput = 30;
+        var iSmall = 30;
+        var iMax = 50;
+
+        // 잘못된예   ( 부등호 연산자는 한꺼번에 같이 사용 못함. )
+        if( iSmall<iInput<iMax ){
+          document.write("true");
+        } else {
+          document.write("false");
+        } accesskey=""                          //true
+
+        //올바른예
+        if ( iSmall<iInput && iInput<iMax ) {
+          document.write("true");
+          document.write("<br/>");
+        }else {
+          document.write("false");
+          document.write("<br/>");
+        }
+
+   // 5.  == : 동일연산자, 자바스크립트엔진이 false를 0으로, true를 1로 강제형변환
+      //                  문자타입은 숫자타입으로 강제형변환, 거의사용x
+        // var bResult = (false == 0);
+        // var bResult2 = (true == 1);
+        // var bResult3 = (true == 2);
+        // var bResult4 = ("5" == 5);
+        // document.write(bResult);      //true
+        // document.write("<br/>");
+        // document.write(bResult2);      //true
+        // document.write("<br/>");
+        // document.write(bResult3);      //false
+        // document.write("<br/>");
+        // document.write(bResult4);      //true
+        // document.write("<br/>");
+
+// 6.  === : 일치연산자, 강제형변환 없음, 데이터타입과 모양 모두같아야 true
+        var bResult5 = (false === 0);
+        var bResult6 = (true === 1);
+        var bResult7 = (true === 2);
+        var bResult8 = ("5" === 5);
+        document.write(bResult5);      //false
+        document.write("<br/>");
+        document.write(bResult6);      //false
+        document.write("<br/>");
+        document.write(bResult7);      //false
+        document.write("<br/>");
+        document.write(bResult8);      //false
+        document.write("<br/>");
+
+        document.write("<br/>");
+        document.write("<br/>");
+        document.write("<br/>");
+
+
+// 7.   A !== B     ; if의 조건문 안에서 불일치(ssName !== ssName2) 할떄==> true를 내뱉게 해 줄 때 많이 사용.
+
+      var ssName = "Daniel";
+      var ssName2 = "Hugh";
+      var ssName3 = sName;
+
+      if( ssName === ssName3){
+        document.write("ssName === ssName3 true.");
+      }
+      if( ssName === ssName2){
+        document.write("ssName === ssName2 true.");
+      }
+      if( ssName !== ssName2){
+        document.write("ssName !== ssName2 true.");
+      }   // 불일치(ssName !== ssName2) 할떄==> true를 내뱉게 해준다.
+
+      // 0724_ 3.5.6
+      // 검열 시스템 툴에서 동일연산자(==)는에러로 뱉는다.
+      // === 일치 연산자 ; 강제 형변환이 아닌, 데어터 타입(모양)도 같아야 한다.
+      // 동일 연산자(==)는 없다라고 생각하고  일치 연산자(===)를 써라
+
+
+
+ /* 8.     3항 연산자  ( *cf_if 문을 사용할 수 있지만, 코딩이 길어지는 단점이 있음.)
+                형식 ;  var 변수 = ( 조건? 1번째 데이터<조건이 true> : 2번째 데이터<조건이 false> )
+                조건 : ture / false 로만 판단 가능하면 아무 식도 가능. */
+
+
+        // 8_1. 원시 데이터
+        /* 이렇게 변수에 데이터를 직접 넣을때(하드코딩한다.)는 많지 않다.
+          데이터는 계속 변한다. 그래서 그 데이터의 값을 모를때가 많다. */
+        var iNum1 = 1, iNum2 = 2;
+              // 어디선가 데이터를 담아와서 큰지 작은지 비교한다. 그 값을 모를때.
+        var iMax = (iNum1 > iNum2) ? iNum1 : iNum2;
+              // 조건인 구간이 인식하기 쉽게 ()을 써준것.
+
+        //8_2. 객체의 property로  접근
+        var oPerson = {name : "Daniel", age : 30};
+        var sDefaultName = oPerson.name ? oPerson.name : "Nicolas";
+                    // 객체의 이름 데이터를 가져옴(문자열을 가져옴) => 빈문자열을 제외한 문자열 데이터는 true
+                        //=>
+        var sDefaultGender = oPerson.gender ? oPerson.gender : "F" ;
+                    //  Q.
+        var bBeName = oPerson.name ? true : false;
+                    // 사이트의 접속 -> 로그인 -> 데이터를 끌고와서 로그인 id와 맞는지 check.
+        document.write(iMax);
+        document.write("<br/>");
+        document.write(sDefaultName );
+        document.write("<br/>");
+        document.write(sDefaultGender );
+        document.write("<br/>");
+        document.write(bBeNames );
+        document.write("<br/>");
+
+
+
+
+
+
+    </script>
+  </body>
+</html>

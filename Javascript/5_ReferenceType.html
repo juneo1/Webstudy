@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var aCarMakers = new Array();
+      aCarMakers[0] = "Benz";
+      aCarMakers[1] = "BMW";
+      aCarMakers[2] = "Audi";
+      console.log(aCarMakers);
+
+      var aCarMakers2 = ["Benz", "BMW", "Audi"];
+      var aCarMakers2 = [];
+      aCarMakers2[0] = "Benz2";
+      aCarMakers2[1] = "BMW2";
+      aCarMakers2[2] = "Audi2";
+      console.log(aCarMakers2);
+
+      for( var i = 0; i < aCarMakers2.length; i++) {
+        document.write("나는 " + aCarMakers2[i] + "에서 생산한 차를 가지고 있습니다. <br/>");
+      }
+      document.write(aCarMakers + "<br/>");
+
+      // Array 맨 끝에 item 추가
+      aCarMakers.push("Hyundai");
+      //aCarMakers.push(true);
+      document.write(aCarMakers+ "<br/>");
+
+      // 해당 텍스트를 기준으로 String 변환
+      document.write(aCarMakers.join("#") + "<br/>");
+      console.log(aCarMakers);
+
+      //pop은 배열 데이터의 가장 마지막 item 삭제
+      aCarMakers.pop();
+      document.write(aCarMakers+ "<br/>");
+
+      // 맨 앞에 item 삭제
+      aCarMakers.shift();
+      document.write(aCarMakers+ "<br/>");
+
+      // 맨 앞에 item 추가
+      aCarMakers.unshift("Samsung");
+      document.write(aCarMakers + "<br/>");
+
+      // index 찾기
+      var iIndex = aCarMakers.indexOf("BMW");
+      document.write(iIndex + "<br/>");
+
+
+      // splice는 원본 객체 배열이 변경
+      // 해당 index의 데이터 삭제, 중간 데이터를 삭제 할 때 사용하기 용이
+      // 첫번 째 인자는 시작위치, 두번 째 인자는 삭제할 데이터 개수
+      var aAfterSpliceCarMakers = aCarMakers.splice(1, 2);
+      document.write(aCarMakers + "<br/>");
+      document.write(aAfterSpliceCarMakers+ "<br/>");
+
+      // 해당 index의 데이터 삽입
+      // 삭제 할 데이터의 갯수를 0으로 해주고 넣어줄 데이터를 뒤에 붙여준다
+      // 시작위치부터 데이터 삽입
+      aCarMakers.splice(1, 0, "Lamborghini", "Porsche", "Bugatti");
+      document.write(aCarMakers + "<br/>");
+
+      // 글자 사이에 숫자를 넣고 세면 해당 부분이 나옴
+      // 시작위치와 종료위치를 두개의 파라미터로 사용
+      // var sWord = "HelloWorld!";
+      // sWord.substring(1,3);
+      // Sword.substring(1);
+
+      // slice는 splice와 다르게 원본 객체에 영향이 없다
+      // return 값을 가지고 사용한다
+      // 첫번 째 인자는 시작위치, 두번째 인자는 종료위치(두번 째 인자가 없으면 끝까지)
+      var aAfterSliceCarMakers1 = aCarMakers.slice(2);
+      document.write(aAfterSliceCarMakers1 + "<br/>");
+
+      var aAfterSliceCarMakers2 = aCarMakers.slice(2, 3);
+      document.write(aAfterSliceCarMakers2 + "<br/>");
+
+      var aAfterSliceCarMakers3= aCarMakers.slice(1, 3);
+      document.write(aAfterSliceCarMakers3 + "<br/>");
+      document.write(aCarMakers + "<br/>");
+
+
+      // map 메소드는 각 배열 요소에 대해 함수를 수행하여 새 배열 생성
+      // map 메소드는 제공된 함수를 배열의 각 요소에 대해 한 번 호출
+      // 원데이터는 변경되지 않음
+      var aNumbers = [1, 2, 3, 4, 5];
+      var aNumbersMap = aNumbers.map(function (item) {
+        return item ** 2;
+      });
+      document.write(aNumbersMap + "<br/>");
+      document.write(aNumbers + "<br/>");
+
+    </script>
+  </body>
+</html>

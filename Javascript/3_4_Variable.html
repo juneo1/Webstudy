@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <script>
+    // document.write(typeof "javascript");
+    // document.write( < br / > )
+    // document.write(typeof 95);
+    // document.write( < br / > )
+    // document.write(true);
+    // document.write( < br / > )
+
+    // var sMessage; // 변수를 초기화 하지 않음
+    // console.log(sMessage);
+    // // 이렇게는 사용하지 않는다.
+    // var sMessage2 = undefined;
+    // document.write(sMessage2);
+
+    // var sMessage = "Hello World";
+    // var sMessage = "";
+    // var bMessageAsBoolean = Boolean(sMessage);
+    // document.write(bMessageAsBoolean);
+    // document.write("<br/>");
+    //
+    // if (sMessage) {
+    //   document.write("sMessage 값은 true");
+    // } else {
+    //   document.write("sMessage 값은 false");
+    // }
+
+
+    // 소수점
+    // var fNum1 = 1.1;
+    // var fNum2 = 0.1;
+    // var fNum3 = .1;
+    //
+    // document.write(fNum1);
+    // document.write("<br/>");
+    // document.write(fNum2);
+    // document.write("<br/>");
+    // document.write(fNum3);
+    // document.write("<br/>");
+    //
+    // var fNum4 = 1.;
+    // var fNum5 = 10.0;
+    // document.write(fNum4);
+    // document.write("<br/>");
+    // document.write(fNum5);
+    // document.write("<br/>");
+    //
+    // var fNum6 = 0.05;
+    // var fNum7 = 0.25;
+    // document.write(fNum6 + fNum7);
+    // document.write("<br/>");
+    //
+    // fNum6 = 0.15;
+    // fNum7 = 0.15;
+    // document.write(fNum6 + fNum7);
+    // document.write("<br/>");
+    //
+    // fNum6 = 0.1;
+    // fNum7 = 0.2;
+    // document.write(fNum6 + fNum7);
+    // document.write("<br/>");
+    //
+    // document.write(((fNum6 * 10) + (fNum7 * 10)) / 10);
+    // document.write("<br/>");
+    //
+    // document.write(100 / 0);
+    // document.write("<br/>");
+
+    // // 숫자형 변수
+    // var iNum1 = 10;
+    // var iNum2 = 20;
+    // var iSumNum = iNum1 + iNum2;
+    // document.write(iSumNum);
+    // document.write("<br/>");
+    // iSumNum = NaN;
+    //
+    // var iMinusNum = iSumNum - 5;
+    // document.write(iMinusNum);
+    // document.write("<br/>");
+    //
+    // var iDivision = iMinusNum / 5;
+    // document.write(iDivision);
+    // document.write("<br/>");
+    //
+    // document.write("<br/>");
+    // document.write(isNaN(NaN));  // trure
+    // document.write("<br/>");
+    // document.write(isNaN(10)); // false
+    // document.write("<br/>");
+    // document.write(isNaN("10")); // false
+    // document.write("<br/>")
+    // document.write(isNaN("blue")); //true
+    // document.write("<br/>")
+    // document.write(isNaN(true)); // false
+
+
+    // parseInt 사용법
+    // document.write("<br/>");
+    // document.write(parseInt("1234blue")); // 숫자는 바꿔주고 문자열은 바꾸지 못해줌
+    // document.write("<br/>");
+    // document.write(parseInt("")); // 값이 없으므로 NaN 값으로 출력
+    // document.write("<br/>");
+    // document.write(parseInt("22.5")); // 소수점 이하를 반올림 하지 않고 버려버리고 앞에만 사용
+    // document.write("<br/>")
+    // document.write(parseInt("22.8")); //
+    // document.write("<br/>")
+    // document.write(parseInt("70")); // 정수는 정수형으로 출력
+    // document.write("<br/>")
+
+    // parseFloat 사용법
+    // document.write("<br/>");
+    // document.write(parseFloat("1234blue")); // 숫자는 바꿔주고 문자열은 바꾸지 못해줌
+    // document.write("<br/>");
+    // document.write(parseFloat("")); // 값이 없으므로 NaN 값으로 출력
+    // document.write("<br/>");
+    // document.write(parseFloat("22.5")); // 소수점 이하를 반올림 하지 않고 버려버리고 앞에만 사용
+    // document.write("<br/>")
+    // document.write(parseFloat("22.88.5")); // 점이 두개 이상일 때는 첫번 째 점~ 두번째 점 이전까지만 숫자로 만들어서 return
+    // document.write("<br/>")
+    // document.write(parseFloat("70")); // 정수는 정수형으로 출력
+    // document.write("<br/>")
+
+    // 문자 타입
+    // var sFirstName = "Jisung";
+    // var sSecondName = 'Park';
+    // document.write(sFirstName);
+    // document.write("<br/>");
+    // document.write(sSecondName);
+    // document.write("<br/>");
+    // document.write(sFirstName + " " + sSecondName);
+    //
+    // var sFullName = "Jisung Park's father";
+    // document.write("<br/>");
+    // document.write(sFullName);
+    //
+    // var sFirstName1 = "Ji\"sung";
+    // document.write(sFirstName1);
+    // document.write("<br/>");
+
+    // 문자타입 toString
+    // var iAge = 11;
+    // var sAgeAsString = iAge.toString();
+    // document.write("<br/>");
+    // document.write(typeof sAgeAsString);
+    //
+    // var bHeight = true; // boolen 값
+    // bHeight = "" + bHeight; // 문자열과 결합, 빈문자열과 합쳐지면 문자열로 변환된다.
+    // document.write("<br/>");
+    // document.write(typeof bHeight);
+    // document.write("<br/>");
+    // document.write(bHeight);
+    // document.write("<br/>");
+    // document.write(true);
+
+    //
+    // var sName = "Hugh";
+    // var sName2 = sName;
+    // document.write(sName);
+    // document.write("<br/>");
+    // document.write(sName2);
+    // document.write("<br/>");
+    // sName2 = "Nicolas";
+    // document.write(sName2);
+    // document.write("<br/>");
+
+
+    // object
+    // var oCar = {
+    //   name: "carnival",
+    //   price: 4000,
+    //   position: 0,
+    //   go: function() {
+    //     this.position +=1;
+    //   }
+    // };
+    //
+    // console.log(oCar);
+    //
+    // var oCar2 = {};
+    // oCar2.name = "sonata";
+    // oCar2["price"] = 3500;
+    // oCar2.position = 0;
+    // oCar2.go = function () {
+    //   this.position += 1;
+    // };
+    //
+    // console.log(oCar2);
+    // oCar2["car maker"] = "Hyundai";
+    // console.log(oCar2.name);
+    //
+    // var oCar3 = oCar2;
+    // console.log("======oCar3======");
+    // console.log(oCar3);
+    // oCar3.name = "sorento";
+    // console.log("======oCar2======");
+    // console.log(oCar2);
+    // console.log("======oCar3======");
+    // console.log(oCar3);
+
+
+  </script>
+</body>
+
+</html>

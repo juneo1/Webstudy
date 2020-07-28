@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<style>
+  /* * {
+    margin: 0;
+    padding: 0;
+  } */
+  body {
+    margin: 10px
+  }
+  table {
+    height: 100%;
+    border-collapse: collapse;
+  }
+  td {
+    text-align: center;
+    opacity: 0.4;
+  }
+  div {
+    border-right: 3px solid red;
+    border-bottom: 3px solid red;
+    height: calc(100% - 20px);
+    width: calc(100% - 20px);
+    position: fixed;
+  }
+</style>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <div>
+  <table border="1" bordercolor="black" width=100% >
+    <tr>
+      <td rowspan="2" width=50% style="background: linear-gradient( to bottom, yellow, green);"></td>
+      <td style="background: linear-gradient( to right, red, green); vertical-align:top; padding-top:15px;"> A Area </td>
+    </tr>
+    <tr>
+      <td style="background: linear-gradient( to bottom right, blue, green); vertical-align:bottom; padding-bottom:15px;"> B Area </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>
