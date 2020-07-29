@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>제목입니다.</title>
+  </head>
+  <body>
+    <a href="URL">링크입니다.</a>
+    <p>단락입니다.</p>
+    <ol>
+      <li>WEB</li>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li id = "javascript">Javascript</li>
+      <li class ="sapui5">SAPUI5</li>
+    </ol>
+    <ul>
+      <li>WEB2</li>
+      <li>HTML2</li>
+      <li>CSS2</li>
+      <li>Javascript2</li>
+      <li>SAPUI52</li>
+    </ul>
+    <script type="text/javascript">
+
+    function changeColor() {
+      // var oJavascriptLi = document.getElementById("javascript");
+      // oJavascriptLi.style.color = "red";
+    }
+
+    // setTimeout(changeColor, 5000);
+    // HTML에 적어주는 스타일은 정적인 요소로 변경이 힘든것이고,
+    // 함수를 이용해서 만들게 되면 원하는 떄에 동적으로 사용이 가능하다.
+
+    // 태그로 조절하는 법
+    // li 태그를 다 가져오기 때문에 getElements 로 's'를 붙여주자.
+    var oLiList = document.getElementsByTagName("li");
+
+    // 같은 태그지만 특정 조건 이래있는 태그만 특정지어주는법
+    var aUl = document.getElementsByTagName("ul")[0];
+    // getElementsByTagName는 배열모양으로 return 되므로,
+    var aLiList = aUl.getElementsByTagName("li");
+    // ul을 먼저 가져오고 부모를 가져오면 아래도 다 가져오기 때문에
+
+
+
+    // index 0번부터 객체를 꺼내서 스타일의 컬러를 red로 바꿔줌
+    for( var i = 0; i<oLiList.length; i++) {
+      if (i%2 === 0) {
+          oLiList[i].style.color = "red";
+      }
+      else {
+          oLiList[i].style.color = "blue";
+      }
+    }
+
+    for( var i = 0; i<aLiList.length; i++ ){
+      aLiList[i].style.color = "red";
+    }
+
+    var oLi = document.querySelector('li');
+    oLi.style.color = "red";
+    var oJavascriptLi = document.querySelector('#javascript');
+    oJavascriptLi.style.color = "orange";
+    var oSapui5Li = document.querySelector('.sapui5');
+    oSapui5Li.style.color = 'gray';
+    </script>
+  </body>
+</html>
