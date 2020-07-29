@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+<!-- button 생성, click이라는 이벤트가 일어날때 openPopup의 함수를 실행 -->
+    <button onclick="openPopup();"> open </button>
+    <script type="text/javascript">
+
+    // 6. BOM
+    // Open은 팝업창을 띄워주는 기능을 한다.
+    // open("URL" , "실행창의 위치" , "실행창 크기");
+    // 기존에 있던 사이트
+      //window.open("https://www.daum.net", "_blank", "width=600, height=400, toolbar=no, menubar=no");
+    // 같은 폴더에 있는 사이트
+      // window.open("./6_1_OpenTest.html", "_blank", "width=600, height=400, toolbar=no, menubar=no");
+
+      // function으로 만듬
+      // 페이지 연결 변수에 넣어서 close 해주면 닫힘, 부모창이 닫힘. 팝업창 자체를 닫고싶으면 window.close() 사용.
+      function openPopup() {
+        var oPopup = window.open("./6_1_OpenTest.html", "_blank", "width=600, height=400, toolbar=no, menubar=no");
+        // 창을 닫는 함수
+        // oPopup.close();
+
+        //setTimeout(함수, 시간) => 세팅해준 시간 이후에 실행. 부모창을 닫는다.
+        //setTimeout(function() {oPopup.close();}, 4000);
+      }
+
+      
+
+    </script>
+  </body>
+</html>

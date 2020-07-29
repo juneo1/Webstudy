@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+<!-- button 생성, click이라는 이벤트가 일어날때 openPopup의 함수를 실행 -->
+    <div id = "stopwatch"> 0 </div>
+    <div id = "clock"> 0 </div>
+
+    <!-- button -->
+    <button onclick="startWatch()"> start </button>
+    <button onclick="stopWatch()"> stop </button>
+    <script type="text/javascript">
+      var iStopWatch = 0;
+      var myStopWatch;
+      var myClock;
+
+      // Interval
+      function stopWatch() {
+        clearInterval(myStopWatch);
+      }
+
+      // querySelector - class나 태그의 위치를 알아오는 메소드
+      function startWatch() {
+        myStopWatch = setInterval(function () {
+          var oStopWatch = document.querySelector("#stopwatch");
+          oStopWatch.innerHTML = ++iStopWatch;
+        }, 1000);
+      }
+
+      function clock() {
+        myClock = setInterval(function () {
+          var oClock = document.querySelector("#clock");
+          oClock.innerHTML = new Date().toLocaleString();
+        }, 1000);
+      }
+
+      // startWatch();
+      clock();
+    </script>
+  </body>
+</html>
