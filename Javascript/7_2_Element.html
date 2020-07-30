@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style >
+    .important {
+      font-size: 40px;
+    }
+    .read {
+      color: red;
+    }
+    .bold {
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <ol>
+  <li>WEB</li>
+  <li>HTML</li>
+  <li id="toggleBtn" class="abc">CSS</li>
+  <li id="javascript">Javascript</li>
+  <li id="sapui5" class=" ">SAPUI5</li>
+<!-- <li id="sapui5" class="important read">SAPUI5</li> -->
+  <li><a id ="daum" target="_blank" href="https://www.daum.net">DAUM</a></li>
+<!-- attribute는 항상 <> 태그 안쪽에 위치해야 한다. img 태그를 a 태그로 감쌀 수 있다. -->
+
+  <a onclick="changeWidth();" title="클릭하면 작아집니다">
+    <img id = "img" src="./image/dog1.jpg" style="width:500px">
+  </a>
+  </ol>
+
+  <button onclick="changeImg();">changeImg</button>
+  <button onclick="changeHerf();">Change</button>
+  <button onclick="toggleImportantClass();">Important</button>
+  <button onclick="toggleReadClass();">Read</button>
+  <button onclick="toggleBoldClass();">Bold</button>
+  <!-- <ul>
+    <li>WEB2</li>
+    <li>HTML2</li>
+    <li>CSS2</li>
+    <li>Javascript2</li>
+    <li>SAPUI52</li>
+  </ul> -->
+
+  <script type="text/javascript">
+  //   document.write("<br/>");
+  //   document.write("<--------------------1. tagName -------------------> <br/>");
+  // // 1. tagName(#)
+  //   var sTagName = document.querySelector("#javascript").tagName;
+  //   document.write(sTagName);  // sTagName에 담긴 LI가 출력
+  //   document.write("<br/>");
+  //   document.querySelector("#javascript").tagName = "a"; // tagName의 값을 a로 변경시도
+  //   document.write(document.querySelector("#javascript").tagName); // 값이 변하지 않는다
+  //   // 자바 스크립트에서 Properties를 만들 때 세팅을 해주는데 특별한 설정이 없는 한 읽기, 쓰기, 삭제, 수정이 다 가능
+  //   // 브라우저가 만든 객체중에 읽기만 가능한 객체가 있다.
+  //   // 중요 프로퍼티이기 때문에 원천적으롯 수정을 막아서 변경시도를 해도 변하지는 않는다.
+  //
+  //   document.write(" <br/> <-----------------------2. id ------------------------> <br/>");
+  // // 2. id
+  //   var oJavascriptTag = document.querySelector("#javascript");
+  //   document.write(oJavascriptTag.id);
+  //   document.write("<br/>");
+  //
+  //   oJavascriptTag.id = "script";
+  //   document.write(oJavascriptTag.id);
+  //
+  //
+  //   document.write(" <br/> <-----------------------3. classList ------------------------> <br/>");
+  // // 3. classList
+  //   var oSapui5Tag = document.querySelector("#sapui5"); // 초기값 : important, read
+  //   document.write(oSapui5Tag.classList);
+  //   document.write ("<br/><br/>");
+  //
+  //
+  //   document.write(oSapui5Tag.classList[1]);  // classList가 Array이기 때문에 1로 read가 나오는지 확인
+  //   document.write ("<br/><br/>");
+  //
+  //   oSapui5Tag.classList.add("bold");  // classList에 bold를 추가
+  //   document.write(oSapui5Tag.classList); // 확인해보면 important, read, bold가 출력
+  //   document.write("<br/><br/>");
+  //
+  //   oSapui5Tag.classList.remove("bold"); // classList에서 bold를 제거
+  //   document.write(oSapui5Tag.classList); // 확인하면 bold가 제거된 important, read만 출력
+  //   document.write("<br/><br/>");
+  //
+  //   oSapui5Tag.classList.toggle("bold"); // toggle : remove와 add를 쓸 필요없이 있으면 빼주고 없으면 넣어주는 기능
+  //
+  //
+  //   document.write(" <br/> <-----------------------4. toggle function ------------------------> <br/>");
+
+    function toggleImportantClass(){
+       document.querySelector("#toggleBtn").classList.toggle("important");
+    }
+
+    function toggleReadClass(){
+       document.querySelector("#toggleBtn").classList.toggle("read");
+    }
+
+    function toggleBoldClass(){
+       document.querySelector(".abc").classList.toggle("bold");
+    }
+
+    function changeHerf() {
+      var oDaumTag = document.querySelector("#daum");
+      var sHref = oDaumTag.getAttribute("href");
+      alert(sHref);
+      oDaumTag.setAttribute("href", "https://www.naver.com");
+      oDaumTag.setAttribute("title", "naver로 이동합니다.");
+      // oDaumTag.setAttribute("id", changeIdNaver);
+    }
+
+
+    var oImgTag = document.querySelector("#img");
+
+    function changeImg() {
+      var curImg = oImgTag.getAttribute("src");
+      if (curImg == "./image/dog1.jpg") {
+          oImgTag.setAttribute("src", "./image/dog2.jpg");
+      } else {
+          oImgTag.setAttribute("src", "./image/dog1.jpg");
+      }
+    }
+
+
+    // getAttribute(인자) : 인자필드에 해당하는 값을 받아오고 return 값이 존재
+    // setAttribute(키, 인자) : 키값에 해당하는 필드에 인자를 입력. return 값은 없음
+    function changeWidth() {
+      var sStyle = oImgTag.getAttribute("style");
+      if( sStyle === "width:500px") {
+        oImgTag.setAttribute("style", "width:300px");
+      } else {
+        oImgTag.setAttribute("style", "width:500px");
+      }
+    }
+  </script>
+</body>
+</html>

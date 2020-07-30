@@ -23,10 +23,10 @@
     </ul>
     <script type="text/javascript">
 
-    function changeColor() {
-      // var oJavascriptLi = document.getElementById("javascript");
-      // oJavascriptLi.style.color = "red";
-    }
+    // function changeColor() {
+    //   var oJavascriptLi = document.getElementById("javascript");
+    //   oJavascriptLi.style.color = "red";
+    // }
 
     // setTimeout(changeColor, 5000);
     // HTML에 적어주는 스타일은 정적인 요소로 변경이 힘든것이고,
@@ -37,11 +37,10 @@
     var oLiList = document.getElementsByTagName("li");
 
     // 같은 태그지만 특정 조건 이래있는 태그만 특정지어주는법
-    var aUl = document.getElementsByTagName("ul")[0];
     // getElementsByTagName는 배열모양으로 return 되므로,
-    var aLiList = aUl.getElementsByTagName("li");
     // ul을 먼저 가져오고 부모를 가져오면 아래도 다 가져오기 때문에
-
+    var aUl = document.getElementsByTagName("ul")[0];
+    var aLiList = aUl.getElementsByTagName("li");
 
 
     // index 0번부터 객체를 꺼내서 스타일의 컬러를 red로 바꿔줌
@@ -58,15 +57,20 @@
       aLiList[i].style.color = "red";
     }
 
-
+    // 3. querySelector
     //querySelector에서 태그를 적어둔다. 태그는 태그이름 id는 # class는 .
     var oLi = document.querySelector('li');
     oLi.style.color = "red";
     var oJavascriptLi = document.querySelector('#javascript');
-    oJavascriptLi.style.color = "orange";
+    oJavascriptLi.style.color = "#19ce60";
     var oSapui5Li = document.querySelector('.sapui5');
     oSapui5Li.style.color = 'gray';
 
+    // 4. querySelectorAll
+    var oLiList = document.querySelectorAll("Li");
+    for( var i = 0; i < oLiList.length; i++ ) {
+      oLiList[i].style.color = "green";
+    }
     </script>
   </body>
 </html>
