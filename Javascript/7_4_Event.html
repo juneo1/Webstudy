@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <button onclick="myButton(event);">ButtonType</button>
+    <input type="text" onchange="myInput(event);"></input>
+    <script type="text/javascript">
+      function myButton(oEvent) {
+        document.write(oEvent.target);
+        document.write(oEvent.type);
+        console.log(oEvent);
+      }
+      function myInput (oEvent) {
+        var sInputValue = oEvent.target.value;
+        var oRegExp = /^(0-9)/g;
+
+        if (!oRegExp.test(sInputValue) ) {
+          alert ("숫자만 입력하세요!");
+        }
+        document.write(oEvent.target);
+        document.write(oEvent.type);
+        console.log(oEvent);
+      }
+    </script>
+</html>
