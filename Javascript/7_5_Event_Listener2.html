@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <style>
+    .container {
+      display: grid;
+      grid-template-columns: 100px 100px 100px 100px 100px;
+      grid-template-rows: 50px;
+      /* grid-template-gap: 5px; */
+      margin-bottom: 10px;
+    }
+    div>div {
+      border: 1px gray solid;
+    }
+    .selected {
+      background-color: skyblue;
+    }
+  </style>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/components/button.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <div> </div>
+    <div> </div>
+    <div> </div>
+    <div> </div>
+    <div> </div>
+  </div>
+  <button onclick="firstButton()" type="submit" class="ui grey button">First</button>
+  <button onclick="lastButton()" type="submit" class="ui grey button">Last</button>
+  <button onclick="toggleButton('all')" type="submit" class="ui brown button">All</button>
+  <button onclick="toggleButton('clear')" type="submit" class="ui brown button">Clear</button>
+
+  <script>
+    var oDivTag = document.querySelector(".container");
+
+    function firstButton() {
+      var aChildDivTags = oDivTag.querySelectorAll("div");
+      aChildDivTags[0].classList.toggle("selected");
+    }
+
+    function lastButton() {
+      var aChildDivTags = oDivTag.querySelectorAll("div");
+      aChildDivTags[aChildDivTags.length-1].classList.toggle("selected");
+    }
+
+    function toggleButton(sParam) {
+      var aChildDivTags = oDivTag.querySelectorAll("div");
+      for (var i = 0; i < aChildDivTags.length; i++) {
+        if (sParam === "all") {
+          aChildDivTags[i].classList.add("selected");
+        } else {
+          aChildDivTags[i].classList.remove("selected");
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

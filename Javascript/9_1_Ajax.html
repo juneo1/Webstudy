@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <p>Hello World!</p>
+    <script>
+      XMLHttpRequest
+      var oXhr = new XMLHttpRequest();
+      oXhr.open("GET", "../JSON/1.json");
+      oXhr.onreadystatechange = function(){
+        if ( oXhr.readyState === 4 && oXhr.status === 200) {
+          var sResponseText = oXhr.responseText;
+          var oResponseText = JSON.parse(sResponseText);
+          console.log(oResponseText)
+        }
+      }
+      oXhr.send();
+    </script>
+  </body>
+</html>

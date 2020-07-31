@@ -1,28 +1,76 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <button onclick="myButton(event);">ButtonType</button>
-    <input type="text" onchange="myInput(event);"></input>
-    <script type="text/javascript">
-      function myButton(oEvent) {
-        document.write(oEvent.target);
-        document.write(oEvent.type);
-        console.log(oEvent);
-      }
-      function myInput (oEvent) {
-        var sInputValue = oEvent.target.value;
-        var oRegExp = /^(0-9)/g;
 
-        if (!oRegExp.test(sInputValue) ) {
-          alert ("숫자만 입력하세요!");
-        }
-        document.write(oEvent.target);
-        document.write(oEvent.type);
-        console.log(oEvent);
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <!-- <button onclick="myButton(event);">ButtonType</button> -->
+  <!-- <input type="text" onchange="myInput(event);"></input> -->
+  <button id="targetButton"> button </button>
+  <input type="text" placeholder="-를 빼고 숫자만 입력하세요" onchange="myInput(event);" ></input>
+  <input type="text" placeholder="주소" onchange="myInput(event);"></input>
+
+  <script type="text/javascript">
+    // function myButton(oEvent) {
+    //   document.write(oEvent.target);
+    //   document.write(oEvent.type);
+    //   console.log(oEvent);
+    // }
+    //
+    function myInput (oEvent) {
+      var sInputValue = oEvent.target.value;
+      var oRegExp = /[^0-9]/g;
+
+      if (oRegExp.test(sInputValue) ) {
+        alert ("숫자만 입력하세요!");
+        oEvent.target.value = "";
+        oEvent.target.style.backgroundColor = "blue";
+        return;
+      } else {
+        oEvent.target.style.backgroundColor = "white";
       }
-    </script>
+    }
+
+
+    var oTargetButton = document.querySelector("#targetButton");
+    var oTargetInput = document.querySelector("#targetInput");
+
+    // 1. inline 방식
+
+    // 2. property Listener 방식
+    oTargetButton.onclick = function(oEvent) {
+      //alert("oEvent.target : " + oEvent.target + ", oEvent.type : " + oEvent.type);
+      alert("1번째 클릭");
+    };
+
+    oTargetButton.onclick = function(oEvent) {
+      //alert("oEvent.target : " + oEvent.target + ", oEvent.type : " + oEvent.type);
+      alert("2번째 클릭");
+    };
+
+    oTargetInput.onchange = function(oEvent) {
+      alert("oEvent.target : " + oEvent.target + ", oEvent.type : " + oEvent.type);
+    };
+
+
+    // 3. eventListener 방식
+    // oTargetButton.addEventListener("click", function(oEvent) {
+    //   //alert("oEvent.target : " + oEvent.target + ", oEvent.type : " + oEvent.type);
+    //   alert("1번째 클릭");
+    // });
+    //
+    // oTargetButton.addEventListener("click", function(oEvent) {
+    //   //alert("oEvent.target : " + oEvent.target + ", oEvent.type : " + oEvent.type);
+    //   alert("2번째 클릭");
+    // });
+    //
+    // oTargetInput.addEventListener("change", function(oEvent) {
+    //   alert("oEvent.target : " + oEvent.target + ", oEvent.type : " + oEvent.type);
+    // });
+
+  </script>
+
 </html>
