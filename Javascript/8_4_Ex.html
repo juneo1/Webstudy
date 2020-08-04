@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<style>
+  p {
+    margin: 4px;
+    vertical-align: center;
+    text-align: center;
+    font-size: 25px;
+  }
+
+  input {
+    align-items: flex-start;
+  }
+</style>
+
+<body>
+  <p>기본정보 : <input id="defaultInfo" type="text"></input> <button onclick="openButton();" id="targetButton"> 불러오기 </button></p>
+  <p>이름 : <input id="name" type="text"></input></p>
+  <p>주소 : <input id="address" type="text"></input></p>
+  <p>나이 : <input id="age" type="text"></input></p>
+  <p>핸드폰번호 : <input id="phone" type="text" placeholder="'-'빼고 형식"></input></p>
+  <p>집전화번호 : <input id="housePhone" type="text"></input></p>
+  <button id="saveButton" onclick="saveButton();"> 저장 </button>
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+  <script>
+    function openButton() {
+      var aId = document.querySelector("#defaultInfo").value;
+      $.ajax({
+        url: "../JSON/user.json",
+        type: "get",
+        success: function(oResult) {
+          if (oResult) {
+            for (var i = 0; i < oResult.users.length; i++) {
+              if (aId === oResult.users[i].userId) {
+                document.querySelector("#name").setAttribute("value", oResult.users[i].name);
+                document.querySelector("#address").setAttribute("value", oResult.users[i].address);
+                document.querySelector("#age").setAttribute("value", oResult.users[i].age);
+                document.querySelector("#phone").setAttribute("value", oResult.users[i].phone);
+                document.querySelector("#housePhone").setAttribute("value", oResult.users[i].housePhone);
+              }
+            }
+          } else {
+            alert("JSON 데이터가 없습니다");
+          }
+        },
+        error: function(oXhr, sTextStatus, oErrorThrown) {
+          console.log(oXhr);
+          console.log(sTextStatus);
+          console.log(oErrorThrown);
+        }
+      });
+    }
+
+    function saveButton() {
+      var flag = 0;
+      if (document.querySelector("#name").getAttribute("value") =='') {
+        document.querySelector("#housePhone").setAttribute("style", "border: 3px solid #ff0000");
+        alert("이름을 입력해주세요");
+        flag = 1;
+      }
+
+      if (document.querySelector("#address").getAttribute("value") =='') {
+        document.querySelector("#address").setAttribute("style", "border: 3px solid #ff0000");
+        alert("주소를 입력해주세요");
+        flag = 1;
+      }
+
+      if (document.querySelector("#age").getAttribute("value") =='') {
+        document.querySelector("#age").setAttribute("style", "border: 3px solid #ff0000");
+        alert("나이를 입력해주세요");
+        flag = 1;
+      }
+
+      if (document.querySelector("#phone").getAttribute("value") =='') {
+        document.querySelector("#phone").setAttribute("style", "border: 3px solid #ff0000");
+        alert("핸드폰번호를 입력해주세요");
+        flag = 1;
+      }
+
+      if (document.querySelector("#housePhone").getAttribute("value") =='') {
+          document.querySelector("#housePhone").setAttribute("style", "border: 3px solid #ff0000");
+          alert("집전화번호를 입력해주세요");
+          flag = 1;
+      }
+
+      if(flag === 0 ) {
+        alert("저장되었습니다.");
+      }
+    }
+  </script>
+</body>
+
+</html>

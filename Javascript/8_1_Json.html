@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // var oCar = {
+      //   name : "sonata",
+      //   price : 3000
+      // }
+      //
+      // var oCar2 = {
+      //   "name": "sorento",
+      //   "price": 3300
+      // }
+      //
+      // console.log(JSON.stringify(JSON.stringify(oCar)));
+      // console.log(JSON.stringify(JSON.stringify(oCar2)));
+
+
+      // console.log(JSON.stringify(oCar2));
+      // console.log(oCar2);
+
+      //
+      var oXhr = new XMLHttpRequest();
+      // oXhr.open("GET", "../JSON/2.json");
+      oXhr.open("GET", "https://services.odata.org/V4/TripPinServiceRW/People");
+      oXhr.onreadystatechange = function(){
+        // readyStates는 상태, status는 응답상태를 알려줌
+        if ( oXhr.readyState === 4 && oXhr.status === 200) {
+          var sResponseText = oXhr.responseText;
+          // text문자열을 json객체로 받아서 변환해준다.
+          var oResponseText = JSON.parse(sResponseText);
+          // parse를 통해서 변환
+          console.log(oResponseText);
+          // for (var i = 0 ; i < oResponseText.length; i++){
+          //   console.log(oResponseText[i].name);
+          // }
+
+
+          // var sStringData = JSON.stringify(sResponseText);
+          // console.log(sStringData);
+          }
+
+
+      }
+      oXhr.send();
+
+
+    </script>
+  </body>
+</html>
