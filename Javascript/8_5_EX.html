@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<style media="screen">
+  span {
+    display: inline-block;
+    width: 130px;
+    text-align: right;
+  }
+</style>
+
+<body>
+  <span>기본정보</span> : <input type="text"></input><button onclick="onLoadData();">불러오기</button><br>
+  <span>이름</span> : <input type="text"></input><br>
+  <span>주소</span> : <input type="text"></input><br>
+  <span>나이</span> : <input type="text" placeholder="'-'빼고 형식"></input><br>
+  <span>핸드폰번호</span> : <input type="text"></input><br>
+  <span>집전화번호</span> : <input type="text"></input><br>
+  <button onclick="onSave();">저장</button>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous">
+  </script>
+  <script type="text/javascript">
+  function onLoadData(){
+    var aInputTags = document.querySelectorAll("input");
+    var sBasicInfo= aInputTags[0].value;
+
+    $.ajax({
+      url : "../json/user.json",
+      type :"get",
+      success : function(oResult){
+        var aUsers = oResult.users;
+        var bMatch = false;
+
+        for (var i = 0 ; i<aUsers.length ; i++){
+          if( sBasicInfo === aUsers[i].userId){
+            // aInputTags[1].value = aUsers[i].name;
+            // aInputTags[2].value = aUsers[i].address;
+            // aInputTags[3].value = aUsers[i].age;
+            // aInputTags[4].value = aUsers[i].phone;
+            // aInputTags[5].value = aUsers[i].housePhone;
+            putInputData(aInputTags,aUsers[i]);
+            bMatch= true; // 일치하는 데이터가 있다.
+            break;
+          }
+        }
+        if(!bMatch){
+          // aInputTags[1].value = "";
+          // aInputTags[2].value = "";
+          // aInputTags[3].value = "";
+          // aInputTags[4].value = "";
+          // aInputTags[5].value = "";
+          putInputData(aInputTags); //oInputData 안넣어주면 undefined로 됨.
+          alert("일치하는 데이터가 없습니다.");
+        }
+      }
+    });
+  }
+
+
+  function putInputData(aInputTags, oInputData){
+    var aFieldName = ["name","address","age","phone","housePhone"];
+    for ( var i = 1 ; i<aInputTags.length; i++){
+      aInputTags[i].value = oInputData ? oInputData[aFieldName[i-1]]: "";
+
+    }
+  }
+
+  function onSave(){
+    //저장체크 (validation check)
+    var aInputTags = document.querySelectorAll("input");
+    var bCheckEmptyInput = false;
+
+    for(var i=1; i<aInputTags.length-1; i++) {
+      if (aInputTags[i].value === '') {
+        aInputTags[i].style.borderColor = "red";
+        bCheckEmptyInput = true;
+      } else {
+        aInputTags[i].style.borderColor = " ";
+      }
+    }
+  }
+  </script>
+</body>
+
+</html>
