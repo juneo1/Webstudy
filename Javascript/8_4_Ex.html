@@ -36,18 +36,10 @@
 
   <script>
     var aTitle = ["#name", "#address", "#age", "#phone", "#housePhone"];
-
     function openButton() {
       // Input Field Style 초기화
       $("input").attr("style", "border: 1px solid black");
-
-      // 1. querySelector를 이용한 변수
       var aId = document.querySelector("#defaultInfo").value;
-
-
-      // 2. querySelectorAll을 이용한 변수
-      var aInputTag = document.querySelectorAll("#defaultInfo");
-      var sBasicInfo = aInputTag[0].value;
 
       // Ajax를 이용해 JSON 파일을 가져오는 구문
       // ajax의 주 목적은 비동기통신.
@@ -90,15 +82,6 @@
         }
       });
     }
-
-// input 데이터 세팅
-    function putInputData(aInputTag, oInputData) {
-      var aFieldNames = ["name", "address", "age", "phone", "housePhone"];
-      for(var i = 1; i<aInputTag.length; i++) {
-          aInputTag[i].value = oInputData?[aFieldNames[i-1]]:'';
-      }
-    }
-
     function saveButton() {
       var flag = false;
       for (var i = 0; i < aTitle.length; i++) {
@@ -117,5 +100,4 @@
     }
   </script>
 </body>
-
 </html>
