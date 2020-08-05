@@ -1,0 +1,42 @@
+<!-- https://code.jquery.com/ -->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <button onclick="addLine();">추가</button>
+  <button onclick="removeLine();">삭제</button>
+  <ul id="myMenu">
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>Javascript</li>
+  </ul>
+
+  <script
+    src="https://code.jquery.com/jquery-3.5.1.js"
+    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+    var iLine = 1;
+    function addLine() {
+      $("#myMenu").append("<li>addLine" + iLine + "</li>");
+      //append는 text를 가지고 화면에 반영을 해준다.
+      iLine++;
+    }
+
+    function removeLine() {
+        var oFirstTag = document.querySelector("li");
+        // li의 맨 위 객체를 선택.
+        $(oFirstTag).remove();
+        // remove가 하는 일은 조회된 객체를 DOM에서 날려버린다.
+    }
+  </script>
+</body>
+
+</html>
